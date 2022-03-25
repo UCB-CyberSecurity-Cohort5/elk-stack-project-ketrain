@@ -4,7 +4,7 @@ Project 1 - ELK Stack Project
 
 The files in this repository were used to configure the network depicted below.
 
-![NETWORK-DIAGRAM](https://user-images.githubusercontent.com/91159691/160045784-97d35ef6-3595-4cf6-b789-4e997bcd71b8.JPG)
+![Network Diagram](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/dfa194bbac9e02b780ba85020106403b00aa9fd9/_NETWORK%20DIAGRAM.JPG)
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the InstallBeats.sh file may be used to install only certain pieces of it, such as Filebeat.
@@ -32,17 +32,16 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name       | Function  | IP Address  | Operating System |
-|------------|-----------|-------------|------------------|
-| Jump Box   | Gateway   | 10.0.0.4    | Linux            |
-| Web1       | Web Server| 10.0.0.8    | Linux            |
-| Web2       | Web Server| 10.0.0.9    | Linux            |
-| Web3       | Web Server| 10.0.0.10   | Linux            |
-| ELK-Server | ELK Server| 10.1.0.4    | Linux            |
-|------------|-----------|-------------|------------------|
-| Load Blncr | Load Blnc | 40.83.133.23|                  |
+| Name          | Function     | IP Address  | Public IP      |Operating System |
+|---------------|--------------|-------------|----------------|-----------------|
+| Jump Box      | Gateway      | 10.0.0.4    | 168.62.215.99  |Linux            |
+| Web1          | Web Server   | 10.0.0.8    |                |Linux            |
+| Web2          | Web Server   | 10.0.0.9    |                |Linux            |
+| Web3          | Web Server   | 10.0.0.10   |                |Linux            |
+| ELK-Server    | ELK Server   | 10.1.0.4    | 20.228.247.207 |Linux            |
+|-              |-             |-            |-               |                 |
+| Load Balancer | Load Balance |             | 40.83.133.23   |                 |
 
 
 ### Access Policies
@@ -50,7 +49,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jump Box, ELK-server machines, and Load Balancer can accept connections from the Internet. Access to these machines is only allowed from the following IP addresses:
--73.220.1.143 (or Local IP)
+-73.220.1.143 (or Admin Local IP)
 
 Machines within the network can only be accessed by the Jump Box, at 10.0.0.4.
 
@@ -65,40 +64,44 @@ A summary of the access policies in place can be found in the table below.
 | Elk-Server| Yes                 | 73.220.1.143         |
 | Load Blncr| Yes                 | 73.220.1.143         |
 
+
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because the process is easily replicable for new machine added to the network, reducing errors and minimizing 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because the process is easily replicable for any new machine added to the network, reducing errors and minimizing time required to carry out the task.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Allocate virtual memory to the VM
+- Install docker to the VM
+- Install Python
+- Install Docker Python Module
+- Download Docker Container ELK761
+- Enable Docker
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![docker ps](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/3.A.4%20docker%20ps%20on%20elk%20server.JPG)
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- 10.0.0.8
+- 10.0.0.9
+- 10.0.0.10
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeats
+- Metricbeats
 
-These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+These Beats allow us to collect the following information from each machine, such as:
+- Filebeats - Detects changes to the file system and collect target log files
+- Metricbeats - Detects changes in CPU performance, CPU usages, SSH logins, and sudo failed logins 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Copy the playbook and config files to /etc/ansible and /etc/ansible/files, respectively.
+- Update the host file within /etc/ansible to designate device groups, i.e. IPs of webservers and elk devices. 
+![hosts](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/3.A.1%20configure%20ELK%20add%20to%20ansible%20hosts.JPG)
+- Run the playbook, and navigate to (ELK-server Public IP:5061) to check that the installation worked as expected.
+![welcome to kibana](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/4.A.1%20Kibana%20access%20via%205601.JPG)
