@@ -4,7 +4,8 @@ Project 1 - ELK Stack Project
 
 The files in this repository were used to configure the network depicted below.
 
-!(Images/Network_Diagram.jpg)
+![NETWORK-DIAGRAM](https://user-images.githubusercontent.com/91159691/160045784-97d35ef6-3595-4cf6-b789-4e997bcd71b8.JPG)
+
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the InstallBeats.sh file may be used to install only certain pieces of it, such as Filebeat.
 
