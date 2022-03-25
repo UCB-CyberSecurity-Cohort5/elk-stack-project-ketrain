@@ -4,7 +4,7 @@ Project 1 - ELK Stack Project
 
 The files in this repository were used to configure the network depicted below.
 
-![Network Diagram](_Network-Diagram.jpg)
+![Network Diagram](_NETWORK DIAGRAM.JPG)
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the InstallBeats.sh file may be used to install only certain pieces of it, such as Filebeat.
@@ -32,17 +32,16 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name          | Function     | IP Address  | Operating System |
-|---------------|--------------|-------------|------------------|
-| Jump Box      | Gateway      | 10.0.0.4    | Linux            |
-| Web1          | Web Server   | 10.0.0.8    | Linux            |
-| Web2          | Web Server   | 10.0.0.9    | Linux            |
-| Web3          | Web Server   | 10.0.0.10   | Linux            |
-| ELK-Server    | ELK Server   | 10.1.0.4    | Linux            |
-|-              |-             |-            |-                 |
-| Load Balancer | Load Balance | 40.83.133.23|                  |
+| Name          | Function     | IP Address  | Public IP      |Operating System |
+|---------------|--------------|-------------|----------------|-----------------|
+| Jump Box      | Gateway      | 10.0.0.4    | 168.62.215.99  |Linux            |
+| Web1          | Web Server   | 10.0.0.8    |                |Linux            |
+| Web2          | Web Server   | 10.0.0.9    |                |Linux            |
+| Web3          | Web Server   | 10.0.0.10   |                |Linux            |
+| ELK-Server    | ELK Server   | 10.1.0.4    | 20.228.247.207 |Linux            |
+|-              |-             |-            |-               |                 |
+| Load Balancer | Load Balance |             | 40.83.133.23   |                 |
 
 
 ### Access Policies
