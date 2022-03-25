@@ -55,14 +55,17 @@ Machines within the network can only be accessed by the Jump Box, at 10.0.0.4.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name      | Publicly Accessible | Allowed IP Addresses |
-|-----------|---------------------|----------------------|
-| Jump Box  | Yes                 | 73.220.1.143         |
-| Web1      | No                  | 10.0.0.4             |
-| Web2      | No                  | 10.0.0.4             |
-| Web3      | No                  | 10.0.0.4             |
-| Elk-Server| Yes                 | 73.220.1.143         |
-| Load Blncr| Yes                 | 73.220.1.143         |
+| Name      | Publicly Accessible | Allowed IP Addresses                    |
+|-----------|---------------------|-----------------------------------------|
+| Jump Box  | Yes                 | 73.220.1.143                            |
+| Web1      | No                  | 10.0.0.4                                |
+| Web2      | No                  | 10.0.0.4                                |
+| Web3      | No                  | 10.0.0.4                                |
+| Elk-Server| Yes                 | 73.220.1.143 (on 5061), 10.1.0.4 (on 22)|
+| Load Blncr| Yes                 | 73.220.1.143, or Any)                   |
+
+
+
 
 
 ### Elk Configuration
@@ -96,12 +99,25 @@ These Beats allow us to collect the following information from each machine, suc
 - Filebeats - Detects changes to the file system and collect target log files
 - Metricbeats - Detects changes in CPU performance, CPU usages, SSH logins, and sudo failed logins 
 
-### Using the Playbook
+
+
+
+### Using the ELK Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the playbook and config files to /etc/ansible and /etc/ansible/files, respectively.
+- Copy the playbook to /etc/ansible.
 - Update the host file within /etc/ansible to designate device groups, i.e. IPs of webservers and elk devices. 
 ![hosts](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/3.A.1%20configure%20ELK%20add%20to%20ansible%20hosts.JPG)
 - Run the playbook, and navigate to (ELK-server Public IP:5061) to check that the installation worked as expected.
 ![welcome to kibana](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/4.A.1%20Kibana%20access%20via%205601.JPG)
+
+
+
+### Using the Beats Playbook
+- Copy the playbook to /etc/ansible, and the config files to /etc/ansible/files
+- Double-check your hosts file groups.
+- Update the config file within /etc/ansible/files to designate correct host IP and Port
+![config metricbeat](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/4b69d8dfab5b00b63aed97f44982800f1be1a982/images/II.1.B.2b.%20metricbeat%20config%20file.JPG)
+- Run the playbook, check module status within kibana GUI
+![module metricbeat](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/4b69d8dfab5b00b63aed97f44982800f1be1a982/images/II.1.B.3b%20after%20webservers%20are%20configured%20w%20metricbeat.JPG)
