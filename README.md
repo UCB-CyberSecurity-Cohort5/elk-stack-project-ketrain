@@ -4,7 +4,7 @@ Project 1 - ELK Stack Project
 
 The files in this repository were used to configure the network depicted below.
 
-![Network Diagram](_NETWORK DIAGRAM.JPG)
+![Network Diagram](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/dfa194bbac9e02b780ba85020106403b00aa9fd9/_NETWORK%20DIAGRAM.JPG)
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the InstallBeats.sh file may be used to install only certain pieces of it, such as Filebeat.
@@ -79,7 +79,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![docker ps](images/3.A.4 docker ps on elk server.JPG)
+![docker ps](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/3.A.4%20docker%20ps%20on%20elk%20server.JPG)
 
 
 ### Target Machines & Beats
@@ -102,6 +102,6 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the playbook and config files to /etc/ansible and /etc/ansible/files, respectively.
 - Update the host file within /etc/ansible to designate device groups, i.e. IPs of webservers and elk devices. 
-![hosts](images/3.A.1 configure ELK add to ansible hosts.JPG)
+![hosts](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/3.A.1%20configure%20ELK%20add%20to%20ansible%20hosts.JPG)
 - Run the playbook, and navigate to (ELK-server Public IP:5061) to check that the installation worked as expected.
-![welcome to kibana](images/4.A.1 Kibana access via 5601.JPG)
+![welcome to kibana](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/3072d7588d4c720d63f7a94d0b361c792752819d/images/4.A.1%20Kibana%20access%20via%205601.JPG)
