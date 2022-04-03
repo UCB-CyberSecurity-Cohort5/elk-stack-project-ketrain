@@ -4,7 +4,7 @@ Project 1 - ELK Stack Project
 
 The files in this repository were used to configure the network depicted below.
 
-![Network Diagram](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/5d92778ac34b52f9a119baa3f98ab01056be13fd/Network%20Diagram.jpg)
+![Network Diagram](https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-ketrain/blob/f1bc9ad943c523e788fbe807480b8e01c26e632d/Network%20Diagram%20Dark.jpg)
 
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Alternatively, select portions of the playbooks file may be used to install only certain pieces of it, such as Filebeat.
